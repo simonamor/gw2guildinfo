@@ -1,0 +1,5 @@
+# Assuming this is being hosted by Apache webserver
+# block access to the git repository and .gitignore
+
+RedirectMatch 404 /\.git
+
