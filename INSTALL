@@ -1,0 +1,44 @@
+Guild Wars 2 Guild Info
+=======================
+
+This set of scripts is for use with Guild Wars 2.
+
+It was designed to be used to track membership of a guild, display
+information about the contents of the guild stash (bank) and show
+guild hall upgrade availability.
+
+Guild Wars 2 API Key
+--------------------
+
+You will first need to create an API key for your account at
+https://account.arena.net/applications and give it the 'account'
+and 'guilds' permissions.
+
+Copy Config.default.php to Config.php and update the API_KEY value.
+
+Run the script 'list_guilds.php' to show the guild ids for your account. 
+
+Update the GUILD_ID value in Config.php with the id of the guild you wish to access.
+
+Database connection
+-------------------
+
+You'll also need to configure the database connection in Config.php with the
+hostname (often localhost), database name, username and password. GW2DB assumes
+the database type is MySQL. If it isn't, the PDO connection string will need to
+be altered.
+
+Import tables.sql into the new database. Note that it will remove the tables before
+creating them so any previous data would be lost.
+
+$ mysql databasename < tables.sql
+
+Generation of the items table data
+----------------------------------
+
+Run update-items.php and it should fetch just over 53,000 items and
+store them in the database table 'items'
+
+Once finished, you should be able to check it using a page like gw2item.php?id=12345
+and see the information for "Strawberry Cookie"
+
